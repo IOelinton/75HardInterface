@@ -1,38 +1,374 @@
 .App {
   text-align: center;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1 {
+  color: #333;
+  margin-bottom: 30px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.progress-bar {
+  width: 100%;
+  height: 30px;
+  background-color: #f0f0f0;
+  border-radius: 15px;
+  margin: 20px 0;
+  overflow: hidden;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.progress {
+  height: 100%;
+  background-color: #4CAF50;
+  transition: width 0.3s ease;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
+  font-weight: bold;
 }
 
-.App-link {
-  color: #61dafb;
+.add-day-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #2196F3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 20px 0;
+  transition: background-color 0.3s;
 }
 
-@keyframes App-logo-spin {
+.add-day-btn:hover {
+  background-color: #1976D2;
+}
+
+.days-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.day-card {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.day-card h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.goal-item {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+  text-align: left;
+}
+
+.goal-item input[type="checkbox"] {
+  margin-right: 10px;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.goal-item span {
+  font-size: 14px;
+  color: #555;
+}
+
+/* ... (mantenha os estilos existentes) ... */
+
+.day-progress-bar {
+  width: 100%;
+  height: 20px;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  margin: 10px 0 15px;
+  overflow: hidden;
+}
+
+.day-progress {
+  height: 100%;
+  transition: width 0.3s ease, background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.App {
+  text-align: center;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+h1 {
+  color: #333;
+  margin: 0;
+}
+
+.reset-btn {
+  padding: 8px 16px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.reset-btn:hover {
+  background-color: #c82333;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 30px;
+  background-color: #f0f0f0;
+  border-radius: 15px;
+  margin: 20px 0;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  background-color: #4CAF50;
+  transition: width 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+}
+
+.days-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.day-card {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.day-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  color: #dc3545;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 0 5px;
+  line-height: 1;
+  transition: color 0.3s;
+}
+
+.delete-btn:hover {
+  color: #c82333;
+}
+
+.new-day-card {
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8f9fa;
+  border: 2px dashed #2196F3;
+}
+
+.new-day-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.new-day-content {
+  text-align: center;
+  color: #2196F3;
+}
+
+.plus-icon {
+  font-size: 40px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.day-card h3 {
+  margin: 0;
+  color: #333;
+}
+
+.goal-item {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+  text-align: left;
+}
+
+.goal-item input[type="checkbox"] {
+  margin-right: 10px;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.goal-item span {
+  font-size: 14px;
+  color: #555;
+}
+
+/* Atualizar o espaçamento do day-card para acomodar a barra de progresso */
+.day-card {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.goal-item {
+  display: flex;
+  align-items: center;
+  margin: 8px 0;
+  text-align: left;
+}
+
+/* modal de finalização do desafio*/
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+  animation: slideIn 0.3s ease;
+}
+
+.modal-content h2 {
+  color: #2196F3;
+  margin-bottom: 20px;
+  font-size: 28px;
+}
+
+.modal-content p {
+  color: #555;
+  margin-bottom: 15px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.restart-btn {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.restart-btn:hover {
+  background-color: #45a049;
+}
+
+.close-btn {
+  padding: 10px 20px;
+  background-color: #f0f0f0;
+  color: #333;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.close-btn:hover {
+  background-color: #e0e0e0;
+}
+
+@keyframes fadeIn {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
   }
+
   to {
-    transform: rotate(360deg);
+    opacity: 1;
   }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Adicione isso ao final do arquivo para garantir um fundo adequado */
+body {
+  background-color: #f5f5f5;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
